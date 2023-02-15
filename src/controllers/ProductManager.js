@@ -39,8 +39,18 @@ exist=async(id)=>{
     return products.find(prod=>prod.id === id)
 }
 
-updateProducts= async(id,product)=>{
+updateProduct= async(id,product)=>{
     let productById=await this.exist(id)
+    if(!productById)return "producto no encontrado"
+    await this.deleteProducts(id)
+    let productOld=await this.readProducts()
+    let products=[{...product,id:id},...productOld] 
+    await this.writeProducts(products)
+    return "producto actualizado"
+
+
+
+
 }
 
 deleteProducts= async(id)=>{
