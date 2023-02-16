@@ -21,7 +21,7 @@ addProducts=async(product)=>{
     product.id=nanoid()
     let productAll=[...productsOld,product];
     await this.writeProducts(productAll);
-    return "Producto Agregado"; 
+    return "product was added"; 
 }
 
 getProducts=async()=>{
@@ -30,7 +30,7 @@ return await this.readProducts()
 
 getProductById= async (id)=>{
     let productById=await this.exist(id)
-    if(!productById)return "producto no encontrado"
+    if(!productById)return "product not found"
     return productById
 }
 
@@ -41,12 +41,12 @@ exist=async(id)=>{
 
 updateProduct= async(id,product)=>{
     let productById=await this.exist(id)
-    if(!productById)return "producto no encontrado"
+    if(!productById)return "product not found"
     await this.deleteProducts(id)
     let productOld=await this.readProducts()
     let products=[{...product,id:id},...productOld] 
     await this.writeProducts(products)
-    return "producto actualizado"
+    return " updated product"
 
 
 
@@ -59,9 +59,9 @@ deleteProducts= async(id)=>{
     if(existProducts){
         let filterProducts=products.filter(prod=>prod.id != id)
         await this.writeProducts(filterProducts)
-        return "producto eliminado"
+        return "product deleted"
     }
-    return"el producto a eliminar no existe"
+    return"the product to be removed doesnt exist"
 
 }
 

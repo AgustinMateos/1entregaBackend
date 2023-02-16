@@ -27,19 +27,19 @@ class CartManager {
         let id = nanoid()
         let cartsConcat = [{ id: id, products: [] }, ...cartsOld]
         await this.writeCarts(cartsConcat)
-        return "carrito agregado"
+        return "cart created"
     }
     getCartsById = async (id) => {
         let cartById = await this.exist(id)
-        if (!cartById) return "cart no encontrado"
+        if (!cartById) return "cart not found"
         return cartById
     }
 
     addProductInCart = async (cartId, productId) => {
         let cartById = await this.exist(cartId)
-        if (!cartById) return "carrito no existente"
+        if (!cartById) return "carrito not created"
         let productById = await productAll.exist(productId)
-        if (!cartById) return "producto no existente"
+        if (!productById) return "product not created"
         let cartsAll = await this.readCarts()
         let cartFilter = cartsAll.filter(cart => cart.id != cartId)
         if (cartById.products.some((prod) => prod.id === productId)) {

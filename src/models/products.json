@@ -1,1 +1,32 @@
-[{"nombre":"kilo","apellido":"zxczxczperasdadezH","passsword":"dlds","id":"Qy8maaOWsJJCI8ZNuf8vU"}]
+[
+    {
+        "title": "remera doggybogy",
+        "description": "Remera de hombre over size",
+        "code": "1",
+        "price": 40,
+        "status": true,
+        "stock": 10,
+        "category": "ropa oversize",
+        "id": "1AFja_w8hjbpuNoVRbDcw"
+    },
+    {
+        "title": "remera new dark",
+        "description": "Remera de hombre over size",
+        "code": "2",
+        "price": 30,
+        "status": true,
+        "stock": 10,
+        "category": "ropa oversize",
+        "id": "2ne4xchPvRlFkAQhSJW1Y"
+    },
+    {
+        "title": "remera not your level",
+        "description": "Remera de hombre over size",
+        "code": "3",
+        "price": 50,
+        "status": true,
+        "stock": 10,
+        "category": "ropa oversize",
+        "id": "2K5S-qHntyM_Y8aXIC41U"
+    }
+]
