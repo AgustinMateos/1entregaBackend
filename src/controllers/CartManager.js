@@ -27,11 +27,11 @@ addCarts=async()=>{
      await this.writeCarts(cartsConcat)
      return "carrito agregado"
 }
-}
  getCartsById = async(id)=>{
     let cartById=await this.exist(id)
     if(!cartById) return "cart no encontrado"
     return cartById
+}
 }
 
 export default CartManager
