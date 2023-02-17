@@ -50,12 +50,12 @@ class CartManager {
             console.log(productInCart.quantity)
             let cartsConcat = [cartById, ...cartFilter]
             await this.writeCarts(cartsConcat);
-            return "Product Sumado al Carrito"
+            return "product was added"
         }
 
         let cartsConcat = [{ id: cartId, products: [{ id: productById.id, quantity: 1 }] }, ...cartFilter]
         await this.writeCarts(cartsConcat)
-        return "Producto agregado exitosamente"
+        return " successfully added product"
 
     }
 
