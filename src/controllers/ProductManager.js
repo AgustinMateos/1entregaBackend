@@ -47,10 +47,6 @@ updateProduct= async(id,product)=>{
     let products=[{...product,id:id},...productOld] 
     await this.writeProducts(products)
     return " updated product"
-
-
-
-
 }
 
 deleteProducts= async(id)=>{
