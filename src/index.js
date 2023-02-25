@@ -5,6 +5,7 @@ import { __dirname } from "./path.js"
 import multer from 'multer'
 import { engine } from "express-handlebars"//create para server mas complejos
 import * as path from 'path'
+import { Server } from "socket.io"
 
 //const upload=multer({dest:'src/public/img'}) imagenes sin formato
 const storage = multer.diskStorage({
@@ -17,9 +18,17 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage: storage })
 
-
 const app = express()
 const PORT = 8080
+
+
+const server = app.listen(PORT, () => {
+    console.log(`Servidor Express on Port ${PORT}`)
+})
+const io = new Server(server);
+
+
+
 //midelwares
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -28,12 +37,26 @@ app.set("view engine", "handlebars")//mis vistas van a ser archivos handlebars
 app.set("views", path.resolve(__dirname, "./views"))// donde se alojan las vistas handlebars
 console.log(path.resolve(__dirname, '/views'))
 console.log(__dirname)
+
+
+
+io.on("connection", (socket) => {
+    console.log("connection con socket");
+
+    socket.on("mensaje",info=>{//captura info cliente
+        console.log(info)
+    })
+    
+    socket.broadcast.emit('evento-admin','hola desde el server, sos el admin')//brodcast se va a poder escuchar en mi app menos en el socket actual
+
+    socket.emit('evento-general','hola a todos los usuarios')
+})
 //routes
-app.use("/static", express.static(__dirname + '/public'))
+app.use("/", express.static(__dirname + '/public'))
 app.use("/products", productRouter)
 app.use('/cart', cartRouter)
 
-app.get('/static', (req, res) => {//se selecciona el componente home
+app.get('/', (req, res) => {
 
     const user = {
         nombre: "seba",
@@ -45,7 +68,7 @@ app.get('/static', (req, res) => {//se selecciona el componente home
     const cursos = [{ numComision: 312423, dias: "lunes y viernes", horario: "20:00 a 22:00" },
     { numComision: 388923, dias: "martes y jueves", horario: "19:00 a 21:00" }]
 
-    res.render("home", {
+    res.render("home", {//se selecciona el componente home
         titulo: "boca",
         mensaje: " juniors",
         isTutor: user.rol === "tutor",
@@ -66,6 +89,3 @@ app.post('/upload', upload.single('product'), (req, res) => {
     }
 })
 
-app.listen(PORT, () => {
-    console.log(`Servidor Express on Port ${PORT}`)
-})
