@@ -28,11 +28,11 @@ const server = app.listen(PORT, () => {
 })
 
 
-const io = new Server(server);
+export const io = new Server(server);
 
 
 
-//midelwares
+//MIDELWARES
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.engine("handlebars", engine())//config de handlbars
@@ -43,51 +43,35 @@ console.log(__dirname)
 
 
 
-io.on("connection", (socket) => {
-    console.log("connection con socket");
+// io.on("connection", (socket) => {
+//     console.log("connection con socket");
 
-    socket.on("mensaje", info => {//captura info cliente
-        console.log(info)
-    })
+//     socket.on("mensaje", info => {//captura info cliente
+//         console.log(info)
+//     })
 
-    socket.broadcast.emit('evento-admin', 'hola desde el server, sos el admin')//brodcast se va a poder escuchar en mi app menos en el socket actual
+//     socket.broadcast.emit('evento-admin', 'hola desde el server, sos el admin')//brodcast se va a poder escuchar en mi app menos en el socket actual
 
-    socket.emit('evento-general', 'hola a todos los usuarios')
-})
-//routes
+//     socket.emit('evento-general', 'hola a todos los usuarios')
+// })
+
+
+//ROUTES
 app.use("/", express.static(__dirname + '/public'))
 app.use("/products", productRouter)
 app.use('/cart', cartRouter)
 
-// app.get('/', (req, res) => {
 
-//     const user = {
-//         nombre: "seba",
-//         email: "seba@gmail.com",
-//         rol: "tutor",
-
-//     }
-
-//     const cursos = [{ numComision: 312423, dias: "lunes y viernes", horario: "20:00 a 22:00" },
-//     { numComision: 388923, dias: "martes y jueves", horario: "19:00 a 21:00" }]
-
-//     res.render("home", {//se selecciona el componente home
-//         titulo: "boca",
-//         mensaje: " juniors",
-//         isTutor: user.rol === "tutor",
-//         user,
-//         cursos
-
-//     })
-// })
+//LISTA DE PRODUCTOS
 const productAll = new ProductManager();
+
 app.get("/", async (req, res) => {
     let products = await productAll.readProducts();
     res.render("home", {
         products,
     });
 });
-//carga de imagenes
+//CARGA DE IMAGENES
 app.post('/upload', upload.single('product'), (req, res) => {
     try {
         console.log(req.file)
