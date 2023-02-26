@@ -1,18 +1,30 @@
-<div class="adada" >
-    <h1>Hola {{mensaje}}</h1>
-    {{>contador}}
+<main>
+    <h2>Lista de Productos</h2>
+    <div class="cardContainer">
+        {{#each products}}
+        <div class="card">
+            <img alt={{this.title}} />
+            <div class="price">
+                <spam>$</spam>
+                <p>{{this.price}}</p>
+            </div>
+            <div>
+                <div>
 
-    <p>hola, {{user.nombre}}</p>
-    {{#if isTutor}}
-    {{#each cursos}}
-    <div>
-        <p>{{this.numComision}}</p>
-        <p>{{this.dias}}</p>
-        {{this.horario}}
+                    <button>add to cart</button>
+                </div>
+            </div>
+            <div>
+                <h2>{{this.title}}</h2>
+                <div>
+                    <span>{{this.author}}</span>
+                    <div>
+                        <span>Stock:</span>
+                        <span>{{this.stock}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
     </div>
-
-    {{/each}}
-    {{else}}
-    <p>no sos tutor</p>
-    {{/if}}
-</div>
+</main>

@@ -1,1 +1,22 @@
-body{background-color: rgb(255, 164, 72);}
+body {
+    background-color: rgb(255, 164, 72);
+}
+
+.cardContainer {
+    border: 15px solid black;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 20px;
+}
+
+.card {
+    border: 2px solid gray;
+    width: 120px;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
