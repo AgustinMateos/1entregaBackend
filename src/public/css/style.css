@@ -5,14 +5,17 @@ body {
 .cardContainer {
     border: 15px solid black;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     text-align: center;
     padding: 20px;
+    min-height: fit-content;
 }
 
 .card {
     border: 2px solid gray;
     width: 120px;
+    margin: 10px;
 }
 
 .price {
