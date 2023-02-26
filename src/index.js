@@ -26,6 +26,8 @@ const PORT = 8080
 const server = app.listen(PORT, () => {
     console.log(`Servidor Express on Port ${PORT}`)
 })
+
+
 const io = new Server(server);
 
 
@@ -80,12 +82,12 @@ app.use('/cart', cartRouter)
 // })
 const productAll = new ProductManager();
 app.get("/", async (req, res) => {
-  let products = await productAll.readProducts();
-  res.render("home", {
-    products,
-  });
+    let products = await productAll.readProducts();
+    res.render("home", {
+        products,
+    });
 });
-
+//carga de imagenes
 app.post('/upload', upload.single('product'), (req, res) => {
     try {
         console.log(req.file)
