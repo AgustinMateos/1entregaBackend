@@ -8,6 +8,7 @@ import * as path from 'path'
 import { Server } from "socket.io"
 import ProductManager from "./controllers/ProductManager.js"
 
+
 //const upload=multer({dest:'src/public/img'}) imagenes sin formato
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -30,6 +31,9 @@ const server = app.listen(PORT, () => {
 
 export const io = new Server(server);
 
+io.on("connection",(socket)=>{
+    console.log("Conexion socket")
+})
 
 
 //MIDELWARES
