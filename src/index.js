@@ -29,11 +29,8 @@ const server = app.listen(PORT, () => {
 })
 
 
-export const io = new Server(server);
+const io = new Server(server);
 
-io.on("connection",(socket)=>{
-    console.log("Conexion socket")
-})
 
 
 //MIDELWARES
@@ -47,17 +44,17 @@ console.log(__dirname)
 
 
 
-// io.on("connection", (socket) => {
-//     console.log("connection con socket");
+io.on("connection", (socket) => {
+    console.log("connection con socket");
 
-//     socket.on("mensaje", info => {//captura info cliente
-//         console.log(info)
-//     })
+    socket.on("mensaje", info => {//captura info cliente
+        console.log(info)
+    })
 
-//     socket.broadcast.emit('evento-admin', 'hola desde el server, sos el admin')//brodcast se va a poder escuchar en mi app menos en el socket actual
+    socket.broadcast.emit('evento-admin', 'hola desde el server, sos el admin')//brodcast se va a poder escuchar en mi app menos en el socket actual
 
-//     socket.emit('evento-general', 'hola a todos los usuarios')
-// })
+    socket.emit('evento-general', 'hola a todos los usuarios')
+})
 
 
 //ROUTES
