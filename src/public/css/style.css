@@ -23,3 +23,26 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+.maingestion {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.mainTableGestion {
+    border: 2px dotted black;
+}
+
+
+
+.containerTabs {
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: center;
+
+}

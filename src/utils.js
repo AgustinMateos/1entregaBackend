@@ -10,12 +10,12 @@ export default __dirname
 
 //Multer
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, __dirname + "/public/img");
-  },
-  filename: (req, file, cb) => {
-    cb(null, __filename.originalname);
-  },
+    destination: (req, file, cb) => {
+        cb(null, __dirname + "/public/img");
+    },
+    filename: (req, file, cb) => {
+        cb(null, __filename.originalname);
+    },
 });
 
 export const uploader = multer({ storage });

@@ -1,22 +1,22 @@
-<main class="mainHome">
+<main>
   <h2>Lista de Productos</h2>
-  <div class="containerCards">
+  <div class="cardContainer">
     {{#each products}}
-      <div class="cardContainer">
+      <div class="card">
         <img
-          class="imgCard"
+          
           src={{this.thumbnail}}
           alt={{this.title}}
         />
-        <div class="priceCard">
+        <div class="price">
           <p>$</p>
-          <p class="price">{{this.price}}</p>
+          <p>{{this.price}}</p>
         </div>
-        <div class="descriptionCard">
-          <h2 class="titleCard">{{this.title}}</h2>
-          <div class="authorStock">
+        <div >
+          <h2 >{{this.title}}</h2>
+          <div >
             <span>{{this.author}}</span>
-            <div class="stockCard">
+            <div >
               <span>Stock:</span>
               <span>{{this.stock}}</span>
             </div>
