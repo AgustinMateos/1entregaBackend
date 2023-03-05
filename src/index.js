@@ -29,10 +29,9 @@ const PORT = process.env.PORT || 8080;
 const server = app.listen(PORT, () =>
   console.log(`Express por Local host ${server.address().port}`)
 );
-server.on("error", (err) => {
-  console.log(`Algo salio mal: ${err}`);
-});
+
 export const io = new Server(server);
+
 
 
 const productAll = new ProductManager();
