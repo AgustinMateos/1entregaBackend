@@ -19,14 +19,14 @@
       {{#each products}}
       <tr>
         <td>{{this.id}}</td>
-        <td class="itemLeft">{{this.title}}</td>
-        <td class="itemLeft">{{this.author}}</td>
-        <td class="itemLeft">{{this.description}}</td>
+        <td >{{this.title}}</td>
+        <td >{{this.author}}</td>
+        <td>{{this.description}}</td>
         <td>{{this.price}}</td>
         <td>{{this.status}}</td>
         <td>{{this.category}}</td>
-        <td class="imgConten">
-          <img class="imgTable" src={{this.thumbnail}} alt={{this.title}} />
+        <td>
+          <img  src={{this.thumbnail}} alt={{this.title}} />
         </td>
         <td>{{this.code}}</td>
         <td>{{this.stock}}</td>

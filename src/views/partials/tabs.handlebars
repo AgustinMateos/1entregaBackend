@@ -1,12 +1,5 @@
 <div class="containerTabs">
-  <div class="tabsSelector">
-    <label for="tab1">GET</label>
-    <label for="tab2">POST</label>
-    <label for="tab3">PUT</label>
-    <label for="tab4">DELETE</label>
-  </div>
   <div class="tabsSelected">
-    <input type="radio" name="tabs" id="tab1" checked />
     <div class="tabs1">
       <h3>Consulta</h3>
       <form class="formTabs" id="formGet">
@@ -23,13 +16,12 @@
         </div>
       </form>
     </div>
-    <input type="radio" name="tabs" id="tab2" />
     <div class="tabs2">
       <h3>Agregar Producto</h3>
       <form class="formTabs" id="formPost">
         <div class="inputTabs">
           <label for="addProducto">JSON del Producto</label>
-          <span>Puede escribir o pegar un producto en formato objeto.json</span>
+          <span>Puede escribir o pegar un producto en formato objeto.json {"clave":"valor"} </span>
           <textarea class="addProduct" name="addProduct" id="addProduct"></textarea>
         </div>
         <div class="btnMassaje">
@@ -40,7 +32,6 @@
         </div>
       </form>
     </div>
-    <input type="radio" name="tabs" id="tab3" />
     <div class="tabs3">
       <h3>Actualizar Producto</h3>
       <form class="formTabs" id="formPut">
@@ -59,7 +50,6 @@
         </div>
       </form>
     </div>
-    <input type="radio" name="tabs" id="tab4" />
     <div class="tabs4">
       <h3>Eliminar Producto</h3>
       <form class="formTabs" id="formDelete">
