@@ -16,8 +16,7 @@ const cargarDom = (prod) => {
   <td >${prod.description}</td>
   <td>${prod.price}</td>
   <td>${prod.category}</td>
-  <td>
-  <img  src=${prod.thumbnail}></td>
+  <td> <img  src=${prod.thumbnail}></td>
   <td>${prod.code}</td>
   <td>${prod.stock}</td>
   </tr>
@@ -26,7 +25,7 @@ const cargarDom = (prod) => {
 
 
 //Eliminar por ID
-// const btnEliminar= document.getElementById("btnEliminar");
+ const btnEliminar= document.getElementById("btnEliminar");
 
 
 btnEliminar.addEventListener("click", (e) => {
