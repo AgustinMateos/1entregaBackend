@@ -1,3 +1,4 @@
+
 const itemTableContent = document.getElementById("itemTableContent");
 const socket = io();
 socket.emit("messaje", "Conectado con el Cliente por Sockets");
@@ -16,7 +17,7 @@ const cargarDom = (prod) => {
   <td>${prod.price}</td>
   <td>${prod.category}</td>
   <td>
-  <img  src=${prod.thumbnail} alt=${prod.title}/></td>
+  <img  src=${prod.thumbnail}></td>
   <td>${prod.code}</td>
   <td>${prod.stock}</td>
   </tr>
@@ -32,7 +33,6 @@ btnEliminar.addEventListener("click", (e) => {
     e.preventDefault();
     let id = document.getElementById("productDelete").value;
     socket.emit("deleteProduct", id);
-    resDelete.innerHTML = "";
 });
 
 socket.on("deleteProduct", (data) => {

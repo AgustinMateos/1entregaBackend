@@ -8,7 +8,7 @@ const productAll = new ProductManager();
 
 //Websockets
 socketRouter.get("/", async (req, res) => {
-    
+
 
     //se recibe peticion de coneccion Cliente
     io.on("connection", (socket) => {

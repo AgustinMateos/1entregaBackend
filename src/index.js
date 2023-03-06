@@ -33,7 +33,6 @@ const server = app.listen(PORT, () =>
 export const io = new Server(server);
 
 
-
 const productAll = new ProductManager();
 app.get("/", async (req, res) => {
   let products = await productAll.readProducts();
